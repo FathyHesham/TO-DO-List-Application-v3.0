@@ -15,7 +15,7 @@
     --muted: #7F8C8D;
     --border: #D4C89A;
     --shadow: 0 0.4rem 2rem rgba(44, 62, 80, 0.08);
-    --radius: 1.4rem;
+    --radius: 0.8rem;
 }
 
 /* == General Rules == */
@@ -100,36 +100,4 @@ main .btn-add-task {
 main .btn-add-task:hover {
     background: #1a252f;
     transform: translateY(-1px);
-}
-
-main .btn-filter {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-main .btn-filter .btn {
-    background: transparent;
-    color: var(--text);
-    font-family: in;
-    padding: 1rem 2rem;
-    border-radius: 3rem;
-    border: 0.2rem solid var(--accent1);
-    font-size: 1.6rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-main .btn-filter .btn.active {
-    background: var(--accent1);
-    color: #fff;
-}
-
-main .btn-filter .btn:hover:not(.active) {
-    background: var(--accent1);
-    color: #fff;
 }

@@ -1,0 +1,153 @@
+.card-task {
+    background: var(--card);
+    border: 0.1rem solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem 2.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.30s, box-shadow 0.30s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-task::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 0.5rem;
+    border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.card-task.priority-low::before {
+    background: var(--accent3);
+}
+
+.card-task.priority-medium::before {
+    background: var(--accent2);
+}
+
+.card-task.priority-high::before {
+    background: var(--accent1);
+}
+
+.card-task.completed-card {
+    background: var(--card-done);
+    opacity: 0.3;
+}
+
+.card-task:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.8rem 3rem rgba(44, 62, 80, 0.12);
+}
+
+.card-task .header-task {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.card-task .header-task .title-task {
+    font-family: "Cario", sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--accent1);
+    flex: 1;
+}
+
+
+.card-task .header-task .title-task.done {
+    text-decoration: line-through;
+    color: var(--muted);
+}
+
+.card-task .header-task .meta-task {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.card-task .header-task .meta-task .badge {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.card-task .header-task .meta-task .badge-priority-high {
+    background: #FADBD8;
+    color: #c0392b;
+}
+
+.card-task .header-task .meta-task .badge-priority-medium {
+    background: #FDEBD0;
+    color: #b7770d;
+}
+
+.card-task .header-task .meta-task .badge-priority-low {
+    background: #D5F5E3;
+    color: #1e8449;
+}
+
+.card-task .header-task .meta-task .date-task {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+.card-task .details-task {
+    font-size: 1.6rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.card-task .actions-buttons {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.card-task .actions-buttons .btn-action {
+    padding: 0.7rem 1.8rem;
+    border: none;
+    border-radius: 1rem;
+    font-family: inherit;
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.12s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-task .actions-buttons .btn-action:hover {
+    opacity: 0.8;
+    transform: translateY(-0.1rem);
+}
+
+.btn-completed {
+    background: var(--accent3);
+    color: #fff;
+}
+
+.btn-undo {
+    background: #7F8C8D;
+    color: #fff;
+}
+
+.btn-update {
+    background: var(--accent2);
+    color: #fff;
+}
+
+.btn-delete {
+    background: var(--danger);
+    color: #fff;
+}

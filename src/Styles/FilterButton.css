@@ -1,0 +1,32 @@
+/* === Filter Buttons === */
+main .btn-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+main .btn-filter .btn {
+    background: transparent;
+    color: var(--text);
+    font-family: in;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    border: 0.2rem solid var(--accent1);
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+main .btn-filter .btn.active {
+    background: var(--accent1);
+    color: #fff;
+}
+
+main .btn-filter .btn:hover:not(.active) {
+    background: var(--accent1);
+    color: #fff;
+}

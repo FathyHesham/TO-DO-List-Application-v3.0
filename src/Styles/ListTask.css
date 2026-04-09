@@ -1,0 +1,13 @@
+/* === List Tasks === */
+.list-tasks {
+    width: 100%;
+}
+.list-tasks .title {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--accent1);
+    border-bottom: 0.2rem solid var(--border);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}

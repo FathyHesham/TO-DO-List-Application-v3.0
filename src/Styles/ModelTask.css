@@ -1,0 +1,161 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(44, 62, 80, 0.55);
+    backdrop-filter: blur(0.4rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.modal-box {
+    background: var(--surface);
+    border-radius: 1rem;
+    padding: 3.2rem 1.8rem;
+    width: 50rem;
+    box-shadow: 0 2.4rem 6.4rem rgba(44, 62, 80, 0.22);
+    animation: slideUp 0.25s ease;
+    direction: rtl;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(3rem);
+        opacity: 0
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1
+    }
+}
+
+.modal-title {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: var(--accent1);
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.2rem solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+
+.form-label {
+    font-size: 0.1.6rem;
+    font-weight: 700;
+    color: var(--accent1);
+}
+
+.required {
+    color: var(--danger);
+    margin-right: 0.2rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    padding: 1rem 1.5rem;
+    background: var(--card);
+    border: 0.2rem solid var(--border);
+    border-radius: 1rem;
+    font-family: inherit;
+    font-size: 1.4rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    direction: rtl;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: var(--accent1);
+    box-shadow: 0 0 0 0.3rem rgba(44, 62, 80, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 8rem;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #bbb;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+    justify-content: flex-start;
+}
+
+.btn-submit {
+    padding: 1.5rem 3.2rem;
+    background: var(--accent1);
+    color: #fff;
+    border: none;
+    border-radius: 1rem;
+    font-family: inherit;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-submit:hover {
+    background: #1a252f;
+}
+
+.btn-cancel {
+    padding: 1.5rem 3.2rem;
+    background: transparent;
+    border: 0.2rem solid var(--border);
+    border-radius: 1rem;
+    font-family: inherit;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--muted);
+    transition: border-color 0.2s;
+}
+
+.btn-cancel:hover {
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.error-msg {
+    color: var(--danger);
+    font-size: 0.78rem;
+    margin-top: 0.5rem;
+}

@@ -1,3 +1,10 @@
+// Import Components
+import FilterButton from "./Components/FilterButtons";
+import ListTasks from "./Components/ListTasks";
+// Import CSS File
+import "./Styles/FilterButton.css";
+import "./Styles/ListTask.css";
+
 export default function App() {
 	return (
 		<div className="main-container">
@@ -8,13 +15,11 @@ export default function App() {
 				<p>نظّم يومك — سجّل مهامك وتابعها بسهولة</p>
 			</header>
 			<main className="main-section" id="main-section">
-				<button type="button" className="btn-add-task" id="btn-add-task">إضافة مهمة جديدة ➕</button>
-				<div className="btn-filter">
-					<button type="button" className="btn btn-all" id="btn-all">الكل 😊</button>
-					<button type="button" className="btn btn-completed" id="btn-completed">المنتهية 🏆</button>
-					<button type="button" className="btn btn-active" id="btn-active">الغير منتهية 🚀</button>
-				</div>
-				
+				<button type="button" className="btn-add-task" id="btn-add-task">
+					إضافة مهمة جديدة ➕
+				</button>
+				<FilterButton />
+				<ListTasks />
 			</main>
 			<footer className="footer-section" id="footer-section"></footer>
 		</div>
