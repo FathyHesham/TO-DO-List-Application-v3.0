@@ -1,0 +1,135 @@
+/* == Import Font Family == */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@300;400;600;700;900&display=swap');
+
+/* == Color Pallete == */
+:root {
+    --background: #F5F0E8;
+    --surface: #FFFDF5;
+    --card: #FFF8E1;
+    --card-done: #E8F5E9;
+    --accent1: #2C3E50;
+    --accent2: #E67E22;
+    --accent3: #27AE60;
+    --danger: #E74C3C;
+    --text: #2C3E50;
+    --muted: #7F8C8D;
+    --border: #D4C89A;
+    --shadow: 0 0.4rem 2rem rgba(44, 62, 80, 0.08);
+    --radius: 1.4rem;
+}
+
+/* == General Rules == */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+    direction: rtl;
+}
+
+body {
+    background: var(--background);
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--text);
+    padding: 2rem;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/* ==== Header Section ==== */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-family: "Cairo", sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    color: var(--accent1);
+    letter-spacing: -0.5rem;
+}
+
+header h1 span {
+    color: var(--accent2);
+}
+
+header p {
+    margin-top: 0.6rem;
+    color: var(--muted);
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+
+/* ==== Main Section ====*/
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .btn-add-task {
+    display: block;
+    background: var(--accent1);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #FFF;
+    width: 80%;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-bottom: 3rem;
+}
+
+main .btn-add-task:hover {
+    background: #1a252f;
+    transform: translateY(-1px);
+}
+
+main .btn-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+main .btn-filter .btn {
+    background: transparent;
+    color: var(--text);
+    font-family: in;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    border: 0.2rem solid var(--accent1);
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+main .btn-filter .btn.active {
+    background: var(--accent1);
+    color: #fff;
+}
+
+main .btn-filter .btn:hover:not(.active) {
+    background: var(--accent1);
+    color: #fff;
+}
