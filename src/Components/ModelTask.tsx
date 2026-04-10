@@ -1,7 +1,39 @@
-export default function ModelTask() {
+// Import Libraries
+import { useState } from "react";
+import type { ModelTaskProps, NewTask, Priority } from "../Types/TypesTask";
+
+export default function ModelTask({ onClose }: ModelTaskProps) {
+	// Create State To Manage Input Field
+	const [stateInput, setStateInput] = useState<NewTask>({
+		taskTitle: "",
+		taskDescription: "",
+		taskDueDate: "",
+		taskPriority: "" as Priority,
+	});
+
+	// Create New Functions To Manage State In Input Field
+	function handleTaskTitle(event: React.ChangeEvent<HTMLInputElement>) {
+		setStateInput({ ...stateInput, taskTitle: event.target.value });
+	}
+
+	function handleTaskDescription(event: React.ChangeEvent<HTMLInputElement>) {
+		setStateInput({ ...stateInput, taskDescription: event.target.value });
+	}
+
+	function handleTaskDueDate(event: React.ChangeEvent<HTMLInputElement>) {
+		setStateInput({ ...stateInput, taskDueDate: event.target.value });
+	}
+
+	function handleTaskPriority(event: React.ChangeEvent<HTMLSelectElement>) {
+		setStateInput({
+			...stateInput,
+			taskPriority: event.target.value as Priority,
+		});
+	}
+
 	return (
-		<div className="modal-overlay">
-			<div className="modal-box">
+		<div className="modal-overlay" >
+			<div className="modal-box" >
 				<div className="modal-title">
 					<span>📝</span>
 					إضافة مهمة جديدة
@@ -17,6 +49,8 @@ export default function ModelTask() {
 							className="form-input"
 							placeholder="اكتب عنوان المهمة"
 							required
+							value={stateInput.taskTitle}
+							onChange={handleTaskTitle}
 						/>
 					</div>
 					<div className="form-group">
@@ -27,6 +61,8 @@ export default function ModelTask() {
 							className="form-input"
 							placeholder="أكتب تفاصيل المهمة"
 							required
+							value={stateInput.taskDescription}
+							onChange={handleTaskDescription}
 						/>
 					</div>
 				</div>
@@ -36,14 +72,24 @@ export default function ModelTask() {
 						<label className="form-label">
 							تاريخ المهمة <span className="required">*</span>
 						</label>
-						<input type="date" className="form-input" required />
+						<input
+							type="date"
+							className="form-input"
+							required
+							value={stateInput.taskDueDate}
+							onChange={handleTaskDueDate}
+						/>
 					</div>
 
 					<div className="form-group">
 						<label className="form-label">
 							مدى الأهمية <span className="required">*</span>
 						</label>
-						<select className="form-select">
+						<select
+							className="form-select"
+							value={stateInput.taskPriority}
+							onChange={handleTaskPriority}
+						>
 							<option value="">أختار الأولوية</option>
 							<option value="low">منخفضة</option>
 							<option value="medium">متوسطة</option>
@@ -54,7 +100,9 @@ export default function ModelTask() {
 
 				<div className="modal-actions">
 					<button className="btn-submit">✅ إضافة المهمة</button>
-					<button className="btn-cancel">إلغاء</button>
+					<button className="btn-cancel" onClick={onClose}>
+						إلغاء
+					</button>
 				</div>
 			</div>
 		</div>
