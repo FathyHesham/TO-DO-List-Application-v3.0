@@ -1,8 +1,11 @@
 // Import Libraries
 import { useState } from "react";
 import { ModelTaskProps, NewTask, Priority } from "../Types/TypesTask";
+import { useTasksContext } from "../Hooks/useTasks";
 
 export default function ModelTask({ onClose }: ModelTaskProps) {
+	// Calling useTask Context
+	const { addTask } = useTasksContext();
 	// Create State To Manage Input Field
 	const [stateInput, setStateInput] = useState<NewTask>({
 		taskTitle: "",
@@ -31,9 +34,23 @@ export default function ModelTask({ onClose }: ModelTaskProps) {
 		});
 	}
 
+	function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
+		event.preventDefault();
+		// Add Task In Object And Save In Local Storage
+		addTask(stateInput);
+		// After Submit "Clear The Form"
+		setStateInput({
+			taskTitle: "",
+			taskDescription: "",
+			taskDueDate: "",
+			taskPriority: "" as Priority,
+		});
+		onClose();
+	}
+
 	return (
-		<div className="modal-overlay" >
-			<div className="modal-box" >
+		<form className="modal-overlay" onSubmit={handleSubmit}>
+			<div className="modal-box">
 				<div className="modal-title">
 					<span>📝</span>
 					إضافة مهمة جديدة
@@ -105,6 +122,6 @@ export default function ModelTask({ onClose }: ModelTaskProps) {
 					</button>
 				</div>
 			</div>
-		</div>
+		</form>
 	);
 }
