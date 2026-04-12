@@ -1,6 +1,6 @@
 // Import Libraries
 import { useState } from "react";
-import type { ModelTaskProps, NewTask, Priority } from "../Types/TypesTask";
+import { ModelTaskProps, NewTask, Priority } from "../Types/TypesTask";
 
 export default function ModelTask({ onClose }: ModelTaskProps) {
 	// Create State To Manage Input Field
