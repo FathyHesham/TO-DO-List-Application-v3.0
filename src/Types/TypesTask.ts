@@ -22,6 +22,7 @@ export interface FullDetailsTask extends NewTask {
 // Create Type To Manage The Open & Close Model Task
 export type ModelTaskProps = {
 	onClose: () => void;
+	editingTask?: FullDetailsTask | null;
 };
 
 // Define The Type Of Context
@@ -36,4 +37,10 @@ export interface TaskContextType {
 // Create Interface To Handle Task In Card
 export interface CardTaskProps {
 	tasks: FullDetailsTask;
+	onEditTask: (task: FullDetailsTask) => void;
+}
+
+// Create Interface To Handle Editing Task In List
+export interface ListTasksProps {
+	onEditTask: (task: FullDetailsTask) => void;
 }

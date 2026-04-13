@@ -1,11 +1,11 @@
 // Import Libraries
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ModelTaskProps, NewTask, Priority } from "../Types/TypesTask";
 import { useTasksContext } from "../Hooks/useTasks";
 
-export default function ModelTask({ onClose }: ModelTaskProps) {
+export default function ModelTask({ onClose, editingTask }: ModelTaskProps) {
 	// Calling useTask Context
-	const { addTask } = useTasksContext();
+	const { addTask, updateTask } = useTasksContext();
 
 	// Create State To Manage Input Field
 	const [stateInput, setStateInput] = useState<NewTask>({
@@ -14,6 +14,26 @@ export default function ModelTask({ onClose }: ModelTaskProps) {
 		taskDueDate: "",
 		taskPriority: "" as Priority,
 	});
+
+	// Fill Form With Editing Task Data If Available
+	useEffect(() => {
+		if (editingTask) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect
+			setStateInput({
+				taskTitle: editingTask.taskTitle,
+				taskDescription: editingTask.taskDescription,
+				taskDueDate: editingTask.taskDueDate,
+				taskPriority: editingTask.taskPriority,
+			});
+		} else {
+			setStateInput({
+				taskTitle: "",
+				taskDescription: "",
+				taskDueDate: "",
+				taskPriority: "" as Priority,
+			});
+		}
+	}, [editingTask]);
 
 	// Create New Functions To Manage State In Input Field
 	function handleTaskTitle(event: React.ChangeEvent<HTMLInputElement>) {
@@ -37,8 +57,13 @@ export default function ModelTask({ onClose }: ModelTaskProps) {
 
 	function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
 		event.preventDefault();
-		// Add Task In Object And Save In Local Storage
-		addTask(stateInput);
+		if (editingTask) {
+			// Update Existing Task
+			updateTask(editingTask.taskId, stateInput);
+		} else {
+			// Add Task In Object And Save In Local Storage
+			addTask(stateInput);
+		}
 		// After Submit "Clear The Form"
 		setStateInput({
 			taskTitle: "",
@@ -49,12 +74,14 @@ export default function ModelTask({ onClose }: ModelTaskProps) {
 		onClose();
 	}
 
+	const isEditing = !!editingTask;
+
 	return (
 		<form className="modal-overlay" onSubmit={handleSubmit}>
 			<div className="modal-box">
 				<div className="modal-title">
 					<span>📝</span>
-					إضافة مهمة جديدة
+					{isEditing ? "تعديل المهمة" : "إضافة مهمة جديدة"}
 					<span>📝</span>
 				</div>
 
@@ -117,7 +144,9 @@ export default function ModelTask({ onClose }: ModelTaskProps) {
 				</div>
 
 				<div className="modal-actions">
-					<button className="btn-submit">✅ إضافة المهمة</button>
+					<button className="btn-submit">
+						{isEditing ? "✅ تحديث المهمة" : "✅ إضافة المهمة"}
+					</button>
 					<button className="btn-cancel" onClick={onClose}>
 						إلغاء
 					</button>

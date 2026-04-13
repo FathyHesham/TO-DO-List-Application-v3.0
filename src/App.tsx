@@ -8,19 +8,30 @@ import ModelTask from "./Components/ModelTask";
 import "./Styles/FilterButton.css";
 import "./Styles/ListTask.css";
 import "./Styles/ModelTask.css";
+import { FullDetailsTask } from "./Types/TypesTask";
 
 export default function App() {
 	// Create State To Manage Open & Close Model Task
 	const [isModelOpen, setInModelOpen] = useState(false);
+	// Create State To Manage The Task Being Edited
+	const [editingTask, setEditingTask] = useState<FullDetailsTask | null>(null);
 
 	// Create Function To Manage State
 	function handleOpenModel() {
+		setEditingTask(null);
+		setInModelOpen(true);
+	}
+
+	// Create New Function To Manage The State For Editing Task
+	function handleEditTask(task: FullDetailsTask) {
+		setEditingTask(task);
 		setInModelOpen(true);
 	}
 
 	// Create Function To Manage State
 	function handleCloseModel() {
 		setInModelOpen(false);
+		setEditingTask(null);
 	}
 
 	return (
@@ -40,9 +51,11 @@ export default function App() {
 				>
 					إضافة مهمة جديدة ➕
 				</button>
-				{isModelOpen && <ModelTask onClose={handleCloseModel} />}
+				{isModelOpen && (
+					<ModelTask onClose={handleCloseModel} editingTask={editingTask} />
+				)}
 				<FilterButton />
-				<ListTasks />
+				<ListTasks onEditTask={handleEditTask} />
 			</main>
 			<footer className="footer-section" id="footer-section"></footer>
 		</div>

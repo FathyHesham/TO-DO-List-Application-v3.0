@@ -1,10 +1,9 @@
-// Import Components
-import CardTask from "./CardTask";
-// Import CSS Files
-import "../Styles/CardTask.css";
 import { useTasksContext } from "../Hooks/useTasks";
+import CardTask from "./CardTask";
+import "../Styles/CardTask.css";
+import { ListTasksProps } from "../Types/TypesTask";
 
-export default function ListTasks() {
+export default function ListTasks({ onEditTask }: ListTasksProps) {
 	const { tasks } = useTasksContext();
 	return (
 		<div className="list-tasks">
@@ -17,7 +16,9 @@ export default function ListTasks() {
 					<p>مفيش مهام هنا دلوقتي!</p>
 				</div>
 			) : (
-				tasks.map((task) => <CardTask key={task.taskId} tasks={task} />)
+				tasks.map((task) => (
+					<CardTask key={task.taskId} tasks={task} onEditTask={onEditTask} />
+				))
 			)}
 		</div>
 	);
