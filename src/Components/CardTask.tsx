@@ -15,13 +15,7 @@ export default function CardTask({ tasks, onEditTask }: CardTaskProps) {
 			className={`card-task priority-${tasks.taskPriority} ${tasks.taskStatus === "completed" ? "completed-card " : ""}`}
 		>
 			<div className="header-task">
-				<span
-					className={
-						tasks.taskStatus === "completed" ? "title-task done" : "title-task"
-					}
-				>
-					{tasks.taskTitle}
-				</span>
+				<span className="title-task">{tasks.taskTitle}</span>
 				<div className="meta-task">
 					<span className={`badge badge-priority-${tasks.taskPriority}`}>
 						{priorityLabel}

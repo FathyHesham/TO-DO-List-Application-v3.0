@@ -43,4 +43,5 @@ export interface CardTaskProps {
 // Create Interface To Handle Editing Task In List
 export interface ListTasksProps {
 	onEditTask: (task: FullDetailsTask) => void;
+	filterTasks: FullDetailsTask[];
 }
