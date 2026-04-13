@@ -1,5 +1,5 @@
 // Create Priority Type Of Tasks
-export type Priority = "low" | "medium" | "hard";
+export type Priority = "low" | "medium" | "high";
 
 // Create Status Type Of Tasks
 export type Status = "active" | "completed";
@@ -21,5 +21,19 @@ export interface FullDetailsTask extends NewTask {
 
 // Create Type To Manage The Open & Close Model Task
 export type ModelTaskProps = {
-    onClose: () => void;
+	onClose: () => void;
+};
+
+// Define The Type Of Context
+export interface TaskContextType {
+	tasks: FullDetailsTask[];
+	addTask: (newTask: NewTask) => void;
+	deleteTask: (taskId: number) => void;
+	completeTask: (taskId: number) => void;
+	updateTask: (taskId: number, updateData: NewTask) => void;
+}
+
+// Create Interface To Handle Task In Card
+export interface CardTaskProps {
+	tasks: FullDetailsTask;
 }

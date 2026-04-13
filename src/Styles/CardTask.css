@@ -29,7 +29,7 @@
 }
 
 .card-task.priority-high::before {
-    background: var(--accent1);
+    background: #c0392b;
 }
 
 .card-task.completed-card {
@@ -79,17 +79,17 @@
 }
 
 .card-task .header-task .meta-task .badge-priority-high {
-    background: #FADBD8;
+    background: #fdc9c4;
     color: #c0392b;
 }
 
 .card-task .header-task .meta-task .badge-priority-medium {
-    background: #FDEBD0;
+    background: #f8dcb3;
     color: #b7770d;
 }
 
 .card-task .header-task .meta-task .badge-priority-low {
-    background: #D5F5E3;
+    background: #a6f7c9;
     color: #1e8449;
 }
 

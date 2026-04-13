@@ -2,6 +2,7 @@
 .list-tasks {
     width: 100%;
 }
+
 .list-tasks .title {
     font-family: 'Cairo', sans-serif;
     font-weight: 700;
@@ -10,4 +11,19 @@
     border-bottom: 0.2rem solid var(--border);
     padding-bottom: 1rem;
     margin-bottom: 2rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+}
+
+.empty-state .empty-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    font-size: 2rem;
 }

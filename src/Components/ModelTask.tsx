@@ -6,6 +6,7 @@ import { useTasksContext } from "../Hooks/useTasks";
 export default function ModelTask({ onClose }: ModelTaskProps) {
 	// Calling useTask Context
 	const { addTask } = useTasksContext();
+
 	// Create State To Manage Input Field
 	const [stateInput, setStateInput] = useState<NewTask>({
 		taskTitle: "",

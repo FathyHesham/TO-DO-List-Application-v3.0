@@ -4,7 +4,7 @@ import { FullDetailsTask } from "../Types/TypesTask";
 const STORAGE_KEY: string = "tasks";
 
 // Create New Function To Load The Data From Local Storage
-export function loadTasks(): FullDetailsTask[] | undefined {
+export function loadTasks(): FullDetailsTask[] {
 	try {
 		// Get The Data From Local Storage
 		const jsonData: string | null = localStorage.getItem(STORAGE_KEY);
@@ -16,7 +16,8 @@ export function loadTasks(): FullDetailsTask[] | undefined {
 			return data;
 		}
 	} catch (error) {
-		console.log(`Error Loading Tasks : ${error}`);
+		console.log( `Error Loading Tasks : ${ error }` );
+		return [];
 	}
 }
 
