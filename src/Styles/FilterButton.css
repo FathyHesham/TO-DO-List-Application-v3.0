@@ -6,12 +6,13 @@ main .btn-filter {
     align-items: center;
     gap: 2rem;
     margin-bottom: 3rem;
+    width: 100%;
 }
 
 main .btn-filter .btn {
     background: transparent;
     color: var(--text);
-    font-family: in;
+    font-family: inherit;
     padding: 1rem 2rem;
     border-radius: 3rem;
     border: 0.2rem solid var(--accent1);
@@ -19,6 +20,7 @@ main .btn-filter .btn {
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s;
+    flex: 1 1 16rem;
 }
 
 main .btn-filter .btn.active {
@@ -29,4 +31,17 @@ main .btn-filter .btn.active {
 main .btn-filter .btn:hover:not(.active) {
     background: var(--accent1);
     color: #fff;
+}
+
+@media (max-width: 480px) {
+    main .btn-filter {
+        gap: 1rem;
+        margin-bottom: 2.2rem;
+    }
+
+    main .btn-filter .btn {
+        padding: 0.9rem 1.2rem;
+        font-size: 1.5rem;
+        flex-basis: 12rem;
+    }
 }

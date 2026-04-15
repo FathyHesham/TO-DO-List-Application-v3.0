@@ -39,13 +39,16 @@ body {
     font-size: 1.6rem;
     line-height: 1.6;
     color: var(--text);
-    padding: 2rem;
+    padding: clamp(1.2rem, 2vw, 2rem);
 }
 
 .main-container {
     width: 100%;
     max-width: 120rem;
     margin: 0 auto;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ==== Header Section ==== */
@@ -57,9 +60,9 @@ header {
 header h1 {
     font-family: "Cairo", sans-serif;
     font-weight: 900;
-    font-size: 3.5rem;
+    font-size: clamp(2.8rem, 2.3vw + 1rem, 3.6rem);
     color: var(--accent1);
-    letter-spacing: -0.5rem;
+    letter-spacing: clamp(-0.4rem, -0.8vw, -0.1rem);
 }
 
 header h1 span {
@@ -79,6 +82,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    flex: 1;
 }
 
 main .btn-add-task {
@@ -88,7 +93,7 @@ main .btn-add-task {
     font-weight: 700;
     font-size: 2rem;
     color: #FFF;
-    width: 80%;
+    width: min(80%, 56rem);
     padding: 1.5rem;
     border: none;
     border-radius: 0.8rem;
@@ -100,4 +105,64 @@ main .btn-add-task {
 main .btn-add-task:hover {
     background: #1a252f;
     transform: translateY(-1px);
+}
+
+/* ==== Footer Section ==== */
+.footer-section {
+    margin-top: 3rem;
+    padding: 2rem 1.2rem;
+    text-align: center;
+    color: var(--muted);
+    border-top: 0.2rem solid var(--border);
+}
+
+.footer-section .footer-text {
+    font-size: 1.4rem;
+}
+
+.footer-section .footer-link {
+    color: var(--accent1);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 0.2rem solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.footer-section .footer-link:hover {
+    color: var(--accent2);
+    border-color: var(--accent2);
+}
+
+@media (max-width: 768px) {
+    header {
+        margin-bottom: 2.4rem;
+    }
+
+    main .btn-add-task {
+        width: 100%;
+        font-size: 1.9rem;
+    }
+
+    .footer-section {
+        margin-top: 2.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 9px;
+    }
+
+    header h1 {
+        letter-spacing: -0.15rem;
+    }
+
+    main .btn-add-task {
+        padding: 1.3rem;
+        font-size: 1.8rem;
+    }
+
+    .footer-section {
+        padding: 1.6rem 1rem;
+    }
 }

@@ -68,10 +68,28 @@ export default function App() {
 				{isModelOpen && (
 					<ModelTask onClose={handleCloseModel} editingTask={editingTask} />
 				)}
-				<FilterButton setFilter={ (filter: string) => setFilter(filter as "all" | "completed" | "active") } filter={ filter } />
-				<ListTasks onEditTask={handleEditTask} filterTasks={filterTasks}/>
+				<FilterButton
+					setFilter={(filter: string) =>
+						setFilter(filter as "all" | "completed" | "active")
+					}
+					filter={filter}
+				/>
+				<ListTasks onEditTask={handleEditTask} filterTasks={filterTasks} />
 			</main>
-			<footer className="footer-section" id="footer-section"></footer>
+			<footer className="footer-section" id="footer-section">
+				<p className="footer-text">
+					© {new Date().getFullYear()} — تم الإنشاء بواسطة{" "}
+					<a
+						className="footer-link"
+						href="https://www.linkedin.com/in/fathy-hesham-fathy/"
+						target="_blank"
+						rel="noreferrer noopener"
+					>
+						Fathy Hesham
+					</a>{" "}
+					— مدير المهام — خلّي يومك أبسط خطوة بخطوة.
+				</p>
+			</footer>
 		</div>
 	);
 }

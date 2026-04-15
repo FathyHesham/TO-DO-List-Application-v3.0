@@ -48,14 +48,16 @@
     align-items: start;
     gap: 1.2rem;
     margin-bottom: 0.8rem;
+    flex-wrap: wrap;
 }
 
 .card-task .header-task .title-task {
-    font-family: "Cario", sans-serif;
+    font-family: "Cairo", sans-serif;
     font-weight: 700;
     font-size: 2rem;
     color: var(--accent1);
     flex: 1;
+    min-width: 18rem;
 }
 
 
@@ -69,6 +71,8 @@
     gap: 1rem;
     align-items: center;
     flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .card-task .header-task .meta-task .badge {
@@ -76,6 +80,9 @@
     border-radius: 2rem;
     font-size: 1.6rem;
     font-weight: 500;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.4;
 }
 
 .card-task .header-task .meta-task .badge-priority-high {
@@ -150,4 +157,43 @@
 .btn-delete {
     background: var(--danger);
     color: #fff;
+}
+
+@media (max-width: 600px) {
+    .card-task {
+        padding: 1.6rem 1.8rem;
+    }
+
+    .card-task .header-task {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+
+    .card-task .header-task .title-task {
+        min-width: 0;
+        font-size: 1.9rem;
+    }
+
+    .card-task .header-task .meta-task {
+        width: 100%;
+        gap: 0.8rem;
+    }
+
+    .card-task .header-task .meta-task .badge {
+        font-size: 1.4rem;
+    }
+
+    .card-task .header-task .meta-task .date-task {
+        font-size: 1.4rem;
+    }
+
+    .card-task .actions-buttons {
+        gap: 0.6rem;
+    }
+
+    .card-task .actions-buttons .btn-action {
+        flex: 1 1 100%;
+        justify-content: center;
+    }
 }

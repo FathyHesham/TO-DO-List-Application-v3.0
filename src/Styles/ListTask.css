@@ -27,3 +27,17 @@
 .empty-state p {
     font-size: 2rem;
 }
+
+@media (max-width: 480px) {
+    .list-tasks .title {
+        font-size: 1.8rem;
+    }
+
+    .empty-state .empty-icon {
+        font-size: 4.2rem;
+    }
+
+    .empty-state p {
+        font-size: 1.8rem;
+    }
+}
